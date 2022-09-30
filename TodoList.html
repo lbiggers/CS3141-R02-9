@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='checkboxes.js'></script>
+	<script src='pretty.js'></script>
+	<style>
+		body {
+			background-color: #222222;
+			text-align: center;
+		}
+		#taskButton{
+			height: 40px;
+			width: 320px;
+			background-color: #00A000;
+			border: none;
+			color: white;
+			font-size: 20px;
+			font-family: 'Arial', sans-serif;
+		}
+		#taskButtonBack{
+			float: center;
+			margin: auto;
+		}
+		.tasks{
+			height: 39px;
+			width: 328px;
+			background-color: #00A000;
+			border-bottom: 10px solid black;
+			color: white;
+			font-size: 20px;
+			font-family: 'Arial', sans-serif;
+			float: center;
+			margin:auto;
+		}
+		.tasksRemove{
+			height: 30px;
+			width: 30px;
+			margin: 5px;
+			float: left;
+			background-color: black;
+			color: #00a000;
+			font-size: 20px;
+		}
+		.tasksBox{
+			height: 30px;
+			width: 30px;
+			margin: 5px;
+			float: right;
+		}
+		.tasksLabel{
+		}
+	</style>
+</head>
+<body>
+	<div id='taskButtonBack' style='border: 4px solid #00a000;width: 320px;'>
+		<button type='button' id='taskButton' onclick='newTask()' onmouseover='outlineTaskButton()'>New Task</button>
+	</div>
+</body>
+</html>
