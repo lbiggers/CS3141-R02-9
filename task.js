@@ -1,6 +1,5 @@
 class task
 {
-    
     constructor(name, id, description, type, frequency, lastFinished)
     {
         this.name = name;                       //Display name of task
@@ -34,11 +33,53 @@ class task
     {
         return this.lastFinished;
     }
-    isSunday()
+    doSunday()
     {
-        if (type == 'D')
+        if (this.type == 'D')
         {
-            return this.frequency.includes("S")
+            return this.frequency.includes("S");
+        }
+    }
+    doMonday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes("M");
+        }
+    }
+    doTuesday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes('T');
+        }
+    }
+    doWednesday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes("W");
+        }
+    }
+    doThursday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes("R");
+        }
+    }
+    doFriday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes("F");
+        }
+    }
+    doSaturday()
+    {
+        if (this.type == 'D')
+        {
+            return this.frequency.includes("Z");
         }
     }
 }
