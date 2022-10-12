@@ -1,4 +1,4 @@
-class tasks
+class task
 {
     
     constructor(name, id, description, type, frequency, lastFinished)
