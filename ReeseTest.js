@@ -5,7 +5,7 @@ function test1()
 {
     let task1 = new task("Dusting", 1, "Dust the tv stand", 'D', "TR", 3);
     document.getElementById("name").innerHTML = "Task name: " + task1.getName();
-    document.getElementById("desc").innerHTML = "Description: " + task1.getDescription();
+    document.getElementById("info").innerHTML = "Description: " + task1.getInfo();
     document.getElementById("type").innerHTML = "type: " + task1.getType();
     document.getElementById("freq").innerHTML = "frequency: " + task1.getFrequency();
     document.getElementById("doS").innerHTML = "Do Sunday? " + task1.doSunday();

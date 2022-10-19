@@ -1,4 +1,7 @@
 let taskCount = 0;
+
+let shownTaskId= ""; 
+
 function newTask(){
 	let taskName = window.prompt("Name this task:","ex: do dishes");
 	
@@ -9,6 +12,7 @@ function newTask(){
 		let task = document.createElement('div');
 		task.setAttribute('id',taskId);
 		task.setAttribute('class','tasks');
+		task.setAttribute('onmouseover','showInfo('+taskId+')');
 		
 		let taskRemove = document.createElement('button');
 		taskRemove.setAttribute('id',taskId + "Remove");
@@ -32,9 +36,11 @@ function newTask(){
 		taskLabel.setAttribute('class','tasksLabel');
 		taskLabel.innerText = taskName;
 		task.appendChild(taskLabel);
+
+		let taskInfo = "";
 		
-		task.appendChild(document.createElement('br'));
-		task.appendChild(document.createElement('br'));
+		//task.appendChild(document.createElement('br')); 
+		//task.appendChild(document.createElement('br'));
 		
 		document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
 	}
@@ -55,4 +61,18 @@ function removeTask(id){
 	if(window.confirm("Are you sure you want to remove this task?")){
 		document.getElementById(id).remove();
 	}
+}
+
+function showInfo(id) {
+	closeInfo(shownTaskId);
+	shownTaskId = id;
+}
+
+function closeInfo(id){
+	if (id == ""){
+		return;
+	}
+
+
+	removeTask(id); //temp behavior
 }

@@ -1,10 +1,10 @@
 class task
 {
-    constructor(name, id, description, type, frequency, lastFinished)
+    constructor(name, id, info, type, frequency, lastFinished)
     {
         this.name = name;                       //Display name of task
         this.id = id;                          //ID used for cookie
-        this.description = description; 
+        this.info = info; 
         this.type = type;                   //'D' or 'I'. Days or intervals.
         this.frequency = frequency;         //D could be any substring of "SMTWRFZ" (R=Thurs. Z=Sat). I is any integer
         this.lastFinished = lastFinished;
@@ -17,9 +17,9 @@ class task
     {
         return this.id;
     }
-    getDescription()
+    getInfo()
     {
-        return this.description;
+        return this.info;
     }
     getType()
     {
