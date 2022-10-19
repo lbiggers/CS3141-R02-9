@@ -64,15 +64,16 @@ function removeTask(id){
 }
 
 function showInfo(id) {
-	closeInfo(shownTaskId);
+	closeInfo();
 	shownTaskId = id;
+
+	//todo
 }
 
-function closeInfo(id){
-	if (id == ""){
+function closeInfo(){
+	if (shownTaskId == ""){
 		return;
 	}
+//todo
 
-
-	removeTask(id); //temp behavior
 }
