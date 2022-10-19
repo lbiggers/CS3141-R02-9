@@ -3,7 +3,7 @@ test1()
 
 function test1()
 {
-    let task1 = new task("Dusting", 1, "Dust the tv stand", 'D', "TR", 3);
+    let task1 = new task("Dusting", "Dust the tv stand", 'D', "TR", 3);
     document.getElementById("name").innerHTML = "Task name: " + task1.getName();
     document.getElementById("info").innerHTML = "Description: " + task1.getInfo();
     document.getElementById("type").innerHTML = "type: " + task1.getType();
