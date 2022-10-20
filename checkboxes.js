@@ -2,12 +2,16 @@ let taskCount = 0;
 
 let shownTaskId= ""; 
 
+let taskInfoArray = [];
+
 function newTask(){
 	let taskName = window.prompt("Name this task:","ex: do dishes");
 	
 	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
 
-		let taskId = "task" + taskCount++;
+		taskCount++;
+
+		let taskId = "task" + taskCount;
 		
 		let task = document.createElement('div');
 		task.setAttribute('id',taskId);
@@ -22,6 +26,13 @@ function newTask(){
 		bold.innerText = "x";
 		taskRemove.appendChild(bold);
 		task.appendChild(taskRemove);
+
+		let taskEdit = document.createElement('button');
+		taskEdit.setAttribute('id',taskId + "Edit");
+		taskEdit.setAttribute('class','tasksEdit');
+		taskEdit.setAttribute('onclick','editTask("'+taskId+'")');
+		taskEdit.innerText = "edit";
+		task.appendChild(taskEdit);
 		
 		let taskBox = document.createElement('input');
 		taskBox.setAttribute('id',taskId + "Box");
@@ -30,14 +41,13 @@ function newTask(){
 		taskBox.setAttribute('oninput','checkTask("'+taskId+'")');
 		task.appendChild(taskBox);
 		
-		
 		let taskLabel = document.createElement('label');
 		taskLabel.setAttribute('id',taskId + "Label");
 		taskLabel.setAttribute('class','tasksLabel');
 		taskLabel.innerText = taskName;
 		task.appendChild(taskLabel);
 
-		let infoText = window.prompt("Notes for this task (optional):");
+		taskInfoArray[taskCount] = window.prompt("Notes for this task (optional):");
 		
 		//task.appendChild(document.createElement('br')); 
 		//task.appendChild(document.createElement('br'));
@@ -61,6 +71,14 @@ function removeTask(id){
 	if(window.confirm("Are you sure you want to remove this task?")){
 		document.getElementById(id).remove();
 	}
+}
+
+function editTask(id){
+	let index = parseInt(id.slice(4));
+
+	let taskLabel = document.getElementById(id + "Label");
+
+	taskLabel.innerText = window.prompt("What should this task be renamed to?");
 }
 
 function showInfo(id) {

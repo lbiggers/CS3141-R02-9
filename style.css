@@ -36,6 +36,15 @@
 			color: #00a000;
 			font-size: 20px;
 		}
+		.tasksEdit{
+			height: 30px;
+			width: 50px;
+			margin-top: 5px;
+			float: left;
+			background-color: black;
+			color: #00a000;
+			font-size: 20px;
+		}
 		.tasksBox{
 			height: 30px;
 			width: 30px;
