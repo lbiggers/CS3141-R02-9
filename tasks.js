@@ -6,7 +6,7 @@ class tasks
     }
     addTask(name, info, type, frequency, lastFinished)
     {
-        temp = new task(name, info, type, frequency, lastFinished);
+        var temp = new task(name, info, type, frequency, lastFinished);
         this.tasks.push(temp);
         return temp;
     }
