@@ -6,7 +6,9 @@ class tasks
     }
     addTask(name, info, type, frequency, lastFinished)
     {
-        var nextID = this.tasks.length
+        var temp = new task(name, info, type, frequency, lastFinished);
+        this.tasks.push(temp);
+        return temp;
     }
     getTasks ()
     {
@@ -15,5 +17,9 @@ class tasks
     getTask(id)
     {
         return task[id];
+    }
+    setTask(id, task)
+    {
+        this.tasks[id] = task; 
     }
 }
