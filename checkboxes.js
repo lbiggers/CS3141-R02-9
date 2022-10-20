@@ -6,7 +6,7 @@ function newTask(){
 	let taskName = window.prompt("Name this task:","ex: do dishes");
 	
 	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
-	
+
 		let taskId = "task" + taskCount++;
 		
 		let task = document.createElement('div');
@@ -37,7 +37,7 @@ function newTask(){
 		taskLabel.innerText = taskName;
 		task.appendChild(taskLabel);
 
-		let taskInfo = "";
+		let infoText = window.prompt("Notes for this task (optional):");
 		
 		//task.appendChild(document.createElement('br')); 
 		//task.appendChild(document.createElement('br'));
@@ -64,7 +64,8 @@ function removeTask(id){
 }
 
 function showInfo(id) {
-	closeInfo();
+	
+	closeInfo();	
 	shownTaskId = id;
 
 	//todo
