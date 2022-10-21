@@ -1,13 +1,15 @@
 let taskCount = 0;
-
 let shownTaskId= ""; 
 
+var taskArray = new Array();
+taskArray.push(["TaskID", "Tasks"])
+let removeCurr = -1;
 function newTask(){
 	let taskName = window.prompt("Name this task:","ex: do dishes");
 	
 	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
-	
-		let taskId = "task" + taskCount++;
+		let taskId = taskArray.length;
+		taskArray.push([taskArray.length, taskName]); 
 		
 		let task = document.createElement('div');
 		task.setAttribute('id',taskId);
@@ -44,6 +46,9 @@ function newTask(){
 		
 		document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
 	}
+	if(taskArray.length == 1){
+		table.removeElement()
+	}
 }
 
 function checkTask(id){
@@ -60,6 +65,11 @@ function checkTask(id){
 function removeTask(id){
 	if(window.confirm("Are you sure you want to remove this task?")){
 		document.getElementById(id).remove();
+		taskArray.pop();
+	    generateTable();
+		if(taskArray.length[0] == 1){
+		table.removeElement()
+	   }
 	}
 }
 
@@ -76,4 +86,35 @@ function closeInfo(){
 	}
 //todo
 
+}
+function generateTable() {
+
+    
+    var table = document.createElement("table");
+    table.border = "1";
+	var columnCount = taskArray[0].length;
+
+    var row = table.insertRow(-1);
+    for (var i = 0; i < columnCount; i++) {
+        var headerCell = document.createElement("th");
+        headerCell.innerHTML = taskArray[0][i];
+        row.appendChild(headerCell);
+        }
+
+        for (var i = 1; i < taskArray.length; i++) {
+        row = table.insertRow(-1);
+        for (var j = 0; j < columnCount; j++) {
+            var cell = row.insertCell(-1);
+            cell.innerHTML = taskArray[i][j];
+        }
+    }
+
+    var dvTable = document.getElementById("dvTable");
+    dvTable.innerHTML = "";
+    dvTable.appendChild(table);
+        
+}
+function arrayRemove(taskid){
+	return taskid != removeCurr;
+	//TODO use filter maybe?
 }

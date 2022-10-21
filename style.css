@@ -44,3 +44,25 @@
 		}
 		.tasksLabel{
 		}
+        table
+        {
+            border: 2px solid #00A000;
+            border-collapse: collapse;
+			margin-left: auto;
+			margin-right: auto;
+			
+        }
+        table th
+        {
+            background-color: #00A000;
+            color: white;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            padding: 5px;
+            border-color: #00A000;
+			color: white;
+        }
+		
+       
