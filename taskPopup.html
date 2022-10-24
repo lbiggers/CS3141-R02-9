@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="popupStyle.css">
+<script src="taskPopupScript.js"></script>
 </head>
 <body>
 	<div class="item" id="name">
@@ -22,13 +23,40 @@
 	<div class="item" id="freq">
 		<label id="freqLabel">which days:</label> 
 		<br>
-		<input id="freqSn" type="checkbox">
-		<input id="freqMn" type="checkbox">
-		<input id="freqTs" type="checkbox">
-		<input id="freqWd" type="checkbox">
-		<input id="freqTr" type="checkbox">
-		<input id="freqFr" type="checkbox">
-		<input id="freqSt" type="checkbox">
+		<table>
+			<tr>
+				<th>S</th>
+				<th>M</th>
+				<th>T</th>
+				<th>W</th>
+				<th>T</th>
+				<th>F</th>
+				<th>S</th>
+			</tr>
+			<tr>
+				<td>
+					<input id="freqSn" type="checkbox">
+				</td>
+				<td>
+					<input id="freqMn" type="checkbox">
+				</td>
+				<td>
+					<input id="freqTs" type="checkbox">
+				</td>
+				<td>
+					<input id="freqWd" type="checkbox">
+				</td>
+				<td>
+					<input id="freqTr" type="checkbox">
+				</td>
+				<td>
+					<input id="freqFr" type="checkbox">
+				</td>
+				<td>
+					<input id="freqSt" type="checkbox">
+				</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>
