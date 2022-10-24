@@ -2,17 +2,63 @@ let taskCount = 0;
 
 let shownTaskId= ""; 
 
-let taskInfoArray = [];
+const taskArray = [];
+
+class task
+{
+    constructor(id, name, info, time, frequency)
+    {
+		this.id = id;
+        this.name = name;
+        this.info = info;
+		
+		this.time = time;
+		this.frequency = frequency;
+    }
+	getTime() {
+        return this.time;
+    }
+	getID()
+    {
+        return this.id;
+    }
+    getName()
+    {
+        return this.name;
+    }
+    getInfo()
+    {
+        return this.info;
+    }
+    getType()
+    {
+        return this.type;
+    }
+    getFrequency()
+    {
+        return this.frequency;
+    }
+    getLastFinished()
+    {
+        return this.lastFinished;
+    }
+}
 
 function newTask(){
-	let taskName = window.prompt("Name this task:","ex: do dishes");
-	
+	//let taskName = window.prompt("Name this task:","ex: do dishes");
+	let taskName = "test";
 	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
-
-		taskCount++;
+		
 
 		let taskId = "task" + taskCount;
 		
+		taskCount++;
+
+		let leftPosition = (screen.width) ? (screen.width-500)/2 : 0;
+		let topPosition = (screen.height) ? (screen.height-800)/2 : 0;
+		
+		popupWindow = window.open('./taskPopup.html','test','popup,height = 800px,width = 500px,left='+leftPosition+',top='+topPosition);
+
 		let task = document.createElement('div');
 		task.setAttribute('id',taskId);
 		task.setAttribute('class','tasks');
@@ -46,8 +92,6 @@ function newTask(){
 		taskLabel.setAttribute('class','tasksLabel');
 		taskLabel.innerText = taskName;
 		task.appendChild(taskLabel);
-
-		taskInfoArray[taskCount] = window.prompt("Notes for this task (optional):");
 		
 		//task.appendChild(document.createElement('br')); 
 		//task.appendChild(document.createElement('br'));

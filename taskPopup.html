@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="popupStyle.css">
 </head>
 <body>
-	<script language="javascript">
-		var popupWindow = null;
-		function positionedPopup(url,winName,w,h,t,l,scroll){
-		settings =
-		'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable'
-		popupWindow = window.open(url,winName,settings)
-		}
-	</script>
-	<p>
-		<a href="https://www.quackit.com/javascript/examples/sample_popup.cfm" onclick="positionedPopup(this.href,'myWindow','700','300','100','200','yes');return false">Positioned Popup</a>
-	</p>
-
+	<div class="item" id="name">
+		<label id="nameLabel">Name of task:</label> 
+		<input id="nameInput" type="text">
+	</div>
+	<div class="item" id="info">
+		<label id="infoLabel">Description: </label> 
+		<input id="infoInput" type="text">
+	</div>
+	<div class="item" id="time">
+		<label id="timeLabel">@ what time: </label> 
+		<input id="timeInputHour" type="text">
+		<label> : </label>
+		<input id="timeInputMinute" type="text">
+		<input id="timeInputAmPm" type="text">
+	</div>
+	<div class="item" id="freq">
+		<label id="freqLabel">which days:</label> 
+		<br>
+		<input id="freqSn" type="checkbox">
+		<input id="freqMn" type="checkbox">
+		<input id="freqTs" type="checkbox">
+		<input id="freqWd" type="checkbox">
+		<input id="freqTr" type="checkbox">
+		<input id="freqFr" type="checkbox">
+		<input id="freqSt" type="checkbox">
+	</div>
 </body>
 </html>

@@ -1,0 +1,15 @@
+.item {
+	padding-bottom: 5px;
+}
+#nameInput{
+	width: 40px;
+}
+#timeInputHour{
+	width: 20px;
+}
+#timeInputMinute{
+	width: 25px;
+}
+#timeInputAmPm{
+	width: 20px;
+}
