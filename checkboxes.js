@@ -7,8 +7,6 @@ var taskArray = [];
 var data;
 
 function newTask(){
-	//let leftPosition = (screen.width) ? (screen.width-500)/2 : 0;
-	//let topPosition = (screen.height) ? (screen.height-800)/2 : 0;
 	let form = document.createElement('div');
 	form.setAttribute('id','formBox');
 	
@@ -165,7 +163,7 @@ function newTask(){
 		formContent.src = "newTaskForm.html"
 	}
 	
-	formContent.height="500px";
+	formContent.height="165px";
 	formContent.id = "formIframe";
 	form.appendChild(formContent);
 
@@ -265,8 +263,15 @@ function showTask(data){
 	}
 }
 
-function debugTaskAlert(data){
-	window.alert();
+function debugTaskAlert(){
+	window.alert(
+
+`name: `+data[0]+`
+desc: `+data[1]+`
+time: `+ data[2][0] +`:`+ data[2][1] +` `+ data[2][2] +`
+days: ` + data[3][0] + data[3][1] + data[3][2] + data[3][3] + data[3][4] + data[3][5] + data[3][6]
+	
+	);
 }
 
 function checkTask(id){
