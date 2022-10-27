@@ -265,6 +265,10 @@ function showTask(data){
 	}
 }
 
+function debugTaskAlert(data){
+	window.alert();
+}
+
 function checkTask(id){
 	let task = document.getElementById(id);
 	let taskBox = document.getElementById(id + "Box");
