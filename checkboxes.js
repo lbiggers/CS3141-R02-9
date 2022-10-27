@@ -4,22 +4,69 @@ var shownTaskId= "";
 
 var taskArray = [];
 
+var data;
+
 function newTask(){
-	taskDataEntry();
-	//showTask();
-}
-
-function taskDataEntry(){
-	let leftPosition = (screen.width) ? (screen.width-500)/2 : 0;
-	let topPosition = (screen.height) ? (screen.height-800)/2 : 0;
-
-	window.open('./taskPopup.html','test','popup,height = 800px,width = 500px,left='+leftPosition+',top='+topPosition);
-
+	//let leftPosition = (screen.width) ? (screen.width-500)/2 : 0;
+	//let topPosition = (screen.height) ? (screen.height-800)/2 : 0;
+	let form = document.createElement('div');
+	form.setAttribute('id','formBox');
 	
+	let formContent = document.createElement('iframe');
+	formContent.src="taskPopup.html";
+	formContent.height="500px";
+	formContent.id = "formIframe";
+	form.appendChild(formContent);
+
+	let formButtons = document.createElement('div');
+	formButtons.setAttribute('id','formBtnBox');
+	formButtons.innerHTML = `
+		<button id='formCancelBtn' onclick='formClose()'>Cancel</button>
+		<button id='formSubmitBtn' onclick='formSubmit()'>Submit</button>
+	`;
+	form.appendChild(formButtons);
+	
+	document.body.insertBefore(form,document.getElementById('taskButtonBack'));	
 }
 
-function showTask(){
-	let taskName = "NAME";
+function formClose(){
+	document.getElementById('formBox').remove();
+}
+function formSubmit(){
+	//let formRead = document.getElementById("formIframe").contentDocument;
+	data = [4];
+
+	var formIframe = document.getElementById('formIframe');
+	var innerDoc = (formIframe.contentDocument) ? formIframe.contentDocument : formIframe.contentWindow.document;
+	
+	data[0] = innerDoc.getElementById('nameInput').value;
+
+	data[1] = innerDoc.getElementById('infoInput').value;
+
+	data[2] = [
+		innerDoc.getElementById('timeInputHour').value,
+		innerDoc.getElementById('timeInputMinute').value,
+		innerDoc.getElementById('timeInputAmPm').value
+	];
+
+	data[3] = [
+		innerDoc.getElementById('freqSn').checked,
+		innerDoc.getElementById('freqMn').checked,
+		innerDoc.getElementById('freqTs').checked,
+		innerDoc.getElementById('freqWd').checked,
+		innerDoc.getElementById('freqTr').checked,
+		innerDoc.getElementById('freqFr').checked,
+		innerDoc.getElementById('freqSt').checked
+	];
+
+	formClose();
+	
+
+	showTask(data);
+}
+
+function showTask(data){
+	let taskName = data[0];
 	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
 
 		let taskId = "task" + taskCount;

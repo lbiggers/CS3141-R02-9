@@ -4,12 +4,8 @@ class task
     {
         this.name = name;                       //Display name of task
         this.info = info; 
-        this.time = time;                   //'D' or 'I'. Days or intervals.
-        this.frequency = frequency;         //D could be any substring of "SMTWRFZ" (R=Thurs. Z=Sat). I is any integer
-    }
-    getID()
-    {
-        return this.id;
+        this.time = time;                  
+        this.frequency = frequency;
     }
     getName()
     {
@@ -27,4 +23,4 @@ class task
     {
         return this.frequency;
     }
-}
+} 

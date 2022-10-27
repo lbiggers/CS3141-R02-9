@@ -27,14 +27,4 @@ function submit(){
 		document.getElementById('freqFr').checked,
 		document.getElementById('freqSt').checked
 	];
-
-	if (window.opener != null && !window.opener.closed) {
-		var txtName = window.opener.document.getElementById("storeData");
-		txtName.value = data;
-	}
-	window.close();
-}
-
-function testFunc(){
-	window.opener.alert("test");
 }
