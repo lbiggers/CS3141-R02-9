@@ -4,8 +4,6 @@ var shownTaskId= "";
 
 var taskArray = [];
 
-var data;
-
 function newTask(){
 	let form = document.createElement('div');
 	form.setAttribute('id','formBox');
@@ -182,8 +180,7 @@ function formClose(){
 	document.getElementById('formBox').remove();
 }
 function formSubmit(){
-	//let formRead = document.getElementById("formIframe").contentDocument;
-	data = [4];
+	var data = [4];
 
 	var formIframe = document.getElementById('formIframe');
 	var innerDoc = (formIframe.contentDocument) ? formIframe.contentDocument : formIframe.contentWindow.document;
@@ -263,7 +260,7 @@ function showTask(data){
 	}
 }
 
-function debugTaskAlert(){
+function debugTaskAlert(data){
 	window.alert(
 
 `name: `+data[0]+`
