@@ -35,27 +35,7 @@
 				<option value='1'>1</option>
 			</select>
 			<label>:</label>
-			<!--script>
-				var doneMinute = false;
-
-				function fillMenuMinute(){
-					if(doneMinute) return;
-					
-					let dropMenu = document.getElementById("timeInputMinute");
-
-					for(let i = 1; i < 60; i++){
-						let menuItem = document.createElement('option');
-						
-						menuItem.value = i;
-						menuItem.innerText = (i < 10) ? "0" + i : i;
-						
-						dropMenu.appendChild(menuItem);
-					}
-
-					doneMinute = true;
-				}
-			</script-->
-			<select id='timeInputMinute' onclick='fillMenuMinute()'>
+			<select id='timeInputMinute'>
 				<option value='0'>00</option>
 				<option value='1'>01</option>
 				<option value='2'>02</option>
@@ -118,8 +98,8 @@
 				<option value='59'>59</option>
 			</select>
 			<select id='timeInputAmPm'>
-				<option value='0'>AM</option>
-				<option value='1'>PM</option>
+				<option value='am'>AM</option>
+				<option value='pm'>PM</option>
 			</select>
 		</div>
 		<div class='item' id='freq'>

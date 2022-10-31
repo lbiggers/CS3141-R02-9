@@ -1,8 +1,11 @@
+var testTaskData; //debugging
+
 var taskCount = 0;
 
 var shownTaskId= ""; 
 
 var taskArray = [];
+
 
 function newTask(){
 	let form = document.createElement('div');
@@ -10,153 +13,152 @@ function newTask(){
 	
 	let formContent = document.createElement('iframe');
 	try {
-		formContent.srcdoc = `
-			<html>
-				<head>
-					<style>
-						body{
-							background-color: #ffffff;
-						}
-						.item {
-							padding-bottom: 5px;
-						}
-					</style>
-				</head>
-				<body>
-					<div class='item' id='name'>
-						<label id='nameLabel'>Name of task:</label> 
-						<input id='nameInput' type='text'>
-					</div>
-					<div class='item' id='info'>
-						<label id='infoLabel'>Description: </label> 
-						<input id='infoInput' type='text'>
-					</div>
-					<div class='item' id='time'>
-						<label id='timeLabel'>@ what time: </label> 
-						<select id='timeInputHour'>
-							<option value='12'>12</option>
-							<option value='11'>11</option>
-							<option value='10'>10</option>
-							<option value='9'>9</option>
-							<option value='8'>8</option>
-							<option value='7'>7</option>
-							<option value='6'>6</option>
-							<option value='5'>5</option>
-							<option value='4'>4</option>
-							<option value='3'>3</option>
-							<option value='2'>2</option>
-							<option value='1'>1</option>
-						</select>
-						<label>:</label>
-						<select id='timeInputMinute'>
-							<option value='0'>00</option>
-							<option value='1'>01</option>
-							<option value='2'>02</option>
-							<option value='3'>03</option>
-							<option value='4'>04</option>
-							<option value='5'>05</option>
-							<option value='6'>06</option>
-							<option value='7'>07</option>
-							<option value='8'>08</option>
-							<option value='9'>09</option>
-							<option value='10'>10</option>
-							<option value='11'>11</option>
-							<option value='12'>12</option>
-							<option value='13'>13</option>
-							<option value='14'>14</option>
-							<option value='15'>15</option>
-							<option value='16'>16</option>
-							<option value='17'>17</option>
-							<option value='18'>18</option>
-							<option value='19'>19</option>
-							<option value='20'>20</option>
-							<option value='21'>21</option>
-							<option value='22'>22</option>
-							<option value='23'>23</option>
-							<option value='24'>24</option>
-							<option value='25'>25</option>
-							<option value='26'>26</option>
-							<option value='27'>27</option>
-							<option value='28'>28</option>
-							<option value='29'>29</option>
-							<option value='30'>30</option>
-							<option value='31'>31</option>
-							<option value='32'>32</option>
-							<option value='33'>33</option>
-							<option value='34'>34</option>
-							<option value='35'>35</option>
-							<option value='36'>36</option>
-							<option value='37'>37</option>
-							<option value='38'>38</option>
-							<option value='39'>39</option>
-							<option value='40'>40</option>
-							<option value='41'>41</option>
-							<option value='42'>42</option>
-							<option value='43'>43</option>
-							<option value='44'>44</option>
-							<option value='45'>45</option>
-							<option value='46'>46</option>
-							<option value='47'>47</option>
-							<option value='48'>48</option>
-							<option value='49'>49</option>
-							<option value='50'>50</option>
-							<option value='51'>51</option>
-							<option value='52'>52</option>
-							<option value='53'>53</option>
-							<option value='54'>54</option>
-							<option value='55'>55</option>
-							<option value='56'>56</option>
-							<option value='57'>57</option>
-							<option value='58'>58</option>
-							<option value='59'>59</option>
-						</select>
-						<select id='timeInputAmPm'>
-							<option value='0'>AM</option>
-							<option value='1'>PM</option>
-						</select>
-					</div>
-					<div class='item' id='freq'>
-						<label id='freqLabel'>which days:</label> 
-						<br>
-						<table>
-							<tr>
-								<th>S</th>
-								<th>M</th>
-								<th>T</th>
-								<th>W</th>
-								<th>T</th>
-								<th>F</th>
-								<th>S</th>
-							</tr>
-							<tr>
-								<td>
-									<input id='freqSn' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqMn' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqTs' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqWd' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqTr' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqFr' type='checkbox'>
-								</td>
-								<td>
-									<input id='freqSt' type='checkbox'>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</body>
-			</html>
-		`;
-
+		formContent.srcdoc = 
+`<html>
+	<head>
+		<style>
+			body{
+				background-color: #ffffff;
+			}
+			.item {
+				padding-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='item' id='name'>
+			<label id='nameLabel'>Name of task:</label> 
+			<input id='nameInput' type='text'>
+		</div>
+		<div class='item' id='info'>
+			<label id='infoLabel'>Description: </label> 
+			<input id='infoInput' type='text'>
+		</div>
+		<div class='item' id='time'>
+			<label id='timeLabel'>@ what time: </label> 
+			<select id='timeInputHour'>
+				<option value='12'>12</option>
+				<option value='11'>11</option>
+				<option value='10'>10</option>
+				<option value='9'>9</option>
+				<option value='8'>8</option>
+				<option value='7'>7</option>
+				<option value='6'>6</option>
+				<option value='5'>5</option>
+				<option value='4'>4</option>
+				<option value='3'>3</option>
+				<option value='2'>2</option>
+				<option value='1'>1</option>
+			</select>
+			<label>:</label>
+			<select id='timeInputMinute'>
+				<option value='0'>00</option>
+				<option value='1'>01</option>
+				<option value='2'>02</option>
+				<option value='3'>03</option>
+				<option value='4'>04</option>
+				<option value='5'>05</option>
+				<option value='6'>06</option>
+				<option value='7'>07</option>
+				<option value='8'>08</option>
+				<option value='9'>09</option>
+				<option value='10'>10</option>
+				<option value='11'>11</option>
+				<option value='12'>12</option>
+				<option value='13'>13</option>
+				<option value='14'>14</option>
+				<option value='15'>15</option>
+				<option value='16'>16</option>
+				<option value='17'>17</option>
+				<option value='18'>18</option>
+				<option value='19'>19</option>
+				<option value='20'>20</option>
+				<option value='21'>21</option>
+				<option value='22'>22</option>
+				<option value='23'>23</option>
+				<option value='24'>24</option>
+				<option value='25'>25</option>
+				<option value='26'>26</option>
+				<option value='27'>27</option>
+				<option value='28'>28</option>
+				<option value='29'>29</option>
+				<option value='30'>30</option>
+				<option value='31'>31</option>
+				<option value='32'>32</option>
+				<option value='33'>33</option>
+				<option value='34'>34</option>
+				<option value='35'>35</option>
+				<option value='36'>36</option>
+				<option value='37'>37</option>
+				<option value='38'>38</option>
+				<option value='39'>39</option>
+				<option value='40'>40</option>
+				<option value='41'>41</option>
+				<option value='42'>42</option>
+				<option value='43'>43</option>
+				<option value='44'>44</option>
+				<option value='45'>45</option>
+				<option value='46'>46</option>
+				<option value='47'>47</option>
+				<option value='48'>48</option>
+				<option value='49'>49</option>
+				<option value='50'>50</option>
+				<option value='51'>51</option>
+				<option value='52'>52</option>
+				<option value='53'>53</option>
+				<option value='54'>54</option>
+				<option value='55'>55</option>
+				<option value='56'>56</option>
+				<option value='57'>57</option>
+				<option value='58'>58</option>
+				<option value='59'>59</option>
+			</select>
+			<select id='timeInputAmPm'>
+				<option value='am'>AM</option>
+				<option value='pm'>PM</option>
+			</select>
+		</div>
+		<div class='item' id='freq'>
+			<label id='freqLabel'>which days:</label> 
+			<br>
+			<table>
+				<tr>
+					<th>S</th>
+					<th>M</th>
+					<th>T</th>
+					<th>W</th>
+					<th>T</th>
+					<th>F</th>
+					<th>S</th>
+				</tr>
+				<tr>
+					<td>
+						<input id='freqSn' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqMn' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqTs' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqWd' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqTr' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqFr' type='checkbox'>
+					</td>
+					<td>
+						<input id='freqSt' type='checkbox'>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>`
+		;
 	} catch(wePlannedForThis){
 		formContent.src = "newTaskForm.html"
 	}
@@ -180,7 +182,7 @@ function formClose(){
 	document.getElementById('formBox').remove();
 }
 function formSubmit(){
-	var data = [4];
+	var data = [5];
 
 	var formIframe = document.getElementById('formIframe');
 	var innerDoc = (formIframe.contentDocument) ? formIframe.contentDocument : formIframe.contentWindow.document;
@@ -205,68 +207,128 @@ function formSubmit(){
 		innerDoc.getElementById('freqSt').checked
 	];
 
-	formClose();
-	
+	data[4] = taskCount++;
 
-	showTask(data);
+	let valid = validate(data);
+	if(valid[0]) {
+		formClose();
+	
+		testTaskData = data; //debugging
+	
+		showTask(data);
+		return;
+	}
+	
+	let errMsg = '';
+	for(let i = 1; i < valid.length; i++){
+		errMsg += valid[i] + "\n";
+	}
+	window.alert(errMsg);
+}
+
+function validate(data){
+	var validityReport = [true,"valid"];
+	let errorCount = 0;
+
+	if(data.length != 5){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad array size, but like how tho??";
+	}
+	if(data[0] == ""){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "You need a name for your task!";
+	}
+	if(data[2].length != 3){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad time array";
+	}	
+	if(parseInt(data[2][0]) > 12 || parseInt(data[2][0]) < 0){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad hours";
+	}
+	if(parseInt(data[2][1]) > 59 || parseInt(data[2][1]) < 0){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad minutes";
+	}
+	if(data[2][2] == 'am' || data[2][2] == 'pm'){
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad minutes";
+	}
+	try {
+		for(let i = 0; i < 7; i++){
+			if(typeof data[3][0] != "boolean"){
+				validityReport[0] = false;
+				validityReport[++errorCount] = "Bad weekday array";
+			}
+			if(validityReport[0] == false){
+				break;
+			}
+		}
+		
+	} catch(error) {
+		validityReport[0] = false;
+		validityReport[++errorCount] = "Bad minutes";
+	}
+
+	return validityReport;
 }
 
 function showTask(data){
+	
 	let taskName = data[0];
-	if(taskName != null && taskName != "" && taskName != "ex: do dishes"){
 
-		let taskId = "task" + taskCount;
-		
-		taskCount++;
+	let taskIdString = "task" + data[4];
+	
+	let task = document.createElement('div');
+	task.setAttribute('id',taskIdString);
+	task.setAttribute('class','tasks');
+	task.setAttribute('onmouseover','showInfo('+taskIdString+')');
+	
+	let taskRemove = document.createElement('button');
+	taskRemove.setAttribute('id',taskIdString + "Remove");
+	taskRemove.setAttribute('class','tasksRemove');
+	taskRemove.setAttribute('onclick','removeTask("'+taskIdString+'")');
+	let bold = document.createElement('b');
+	bold.innerText = "x";
+	taskRemove.appendChild(bold);
+	task.appendChild(taskRemove);
 
-		let task = document.createElement('div');
-		task.setAttribute('id',taskId);
-		task.setAttribute('class','tasks');
-		task.setAttribute('onmouseover','showInfo('+taskId+')');
-		
-		let taskRemove = document.createElement('button');
-		taskRemove.setAttribute('id',taskId + "Remove");
-		taskRemove.setAttribute('class','tasksRemove');
-		taskRemove.setAttribute('onclick','removeTask("'+taskId+'")');
-		let bold = document.createElement('b');
-		bold.innerText = "x";
-		taskRemove.appendChild(bold);
-		task.appendChild(taskRemove);
-
-		let taskEdit = document.createElement('button');
-		taskEdit.setAttribute('id',taskId + "Edit");
-		taskEdit.setAttribute('class','tasksEdit');
-		taskEdit.setAttribute('onclick','editTask("'+taskId+'")');
-		taskEdit.innerText = "edit";
-		task.appendChild(taskEdit);
-		
-		let taskBox = document.createElement('input');
-		taskBox.setAttribute('id',taskId + "Box");
-		taskBox.setAttribute('class','tasksBox');
-		taskBox.setAttribute('type','checkbox');
-		taskBox.setAttribute('oninput','checkTask("'+taskId+'")');
-		task.appendChild(taskBox);
-		
-		let taskLabel = document.createElement('label');
-		taskLabel.setAttribute('id',taskId + "Label");
-		taskLabel.setAttribute('class','tasksLabel');
-		taskLabel.innerText = taskName;
-		task.appendChild(taskLabel);
-		
-		//task.appendChild(document.createElement('br')); 
-		//task.appendChild(document.createElement('br'));
-		
-		document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
-	}
+	let taskEdit = document.createElement('button');
+	taskEdit.setAttribute('id',taskIdString + "Edit");
+	taskEdit.setAttribute('class','tasksEdit');
+	taskEdit.setAttribute('onclick','editTask("'+taskIdString+'")');
+	taskEdit.innerText = "edit";
+	task.appendChild(taskEdit);
+	
+	let taskBox = document.createElement('input');
+	taskBox.setAttribute('id',taskIdString + "Box");
+	taskBox.setAttribute('class','tasksBox');
+	taskBox.setAttribute('type','checkbox');
+	taskBox.setAttribute('oninput','checkTask("'+taskIdString+'")');
+	task.appendChild(taskBox);
+	
+	let taskLabel = document.createElement('label');
+	taskLabel.setAttribute('id',taskIdString + "Label");
+	taskLabel.setAttribute('class','tasksLabel');
+	taskLabel.innerText = taskName;
+	task.appendChild(taskLabel);
+	
+	document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
 }
 
-function debugTaskAlert(data){
+function debugTaskAlert(){
+	
+	let daysTest = [7];
+	for(let i = 0; i < 7; i++){
+		daysTest[i] = (testTaskData[3][i]) ? 'X' : 'O';
+	}
+
 	window.alert(
 
-`name: `+data[0]+`
-desc: `+data[1]+`
-time: `+ data[2][0] +`:`+ data[2][1] +` `+ data[2][2] +`
-days: ` + data[3][0] + data[3][1] + data[3][2] + data[3][3] + data[3][4] + data[3][5] + data[3][6]
+`name: `+testTaskData[0]+`
+desc: `+testTaskData[1]+`
+time: `+ testTaskData[2][0] +`:`+ testTaskData[2][1] +` `+ testTaskData[2][2] +`
+days: ` + daysTest[0] + daysTest[1] + daysTest[2] + daysTest[3] + daysTest[4] + daysTest[5] + daysTest[6]
 	
 	);
 }
