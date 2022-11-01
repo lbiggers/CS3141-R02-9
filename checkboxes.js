@@ -223,6 +223,7 @@ function showTask(data){
 		taskCount++;
 
 		let task = document.createElement('div');
+		task.setAttribute('class', 'column')
 		task.setAttribute('id',taskId);
 		task.setAttribute('class','tasks');
 		task.setAttribute('onmouseover','showInfo('+taskId+')');
