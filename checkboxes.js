@@ -114,8 +114,8 @@ function newTask(){
 				<option value='59'>59</option>
 			</select>
 			<select id='timeInputAmPm'>
-				<option value='am'>AM</option>
-				<option value='pm'>PM</option>
+				<option value='0'>AM</option>
+				<option value='1'>PM</option>
 			</select>
 		</div>
 		<div class='item' id='freq'>
@@ -250,12 +250,10 @@ function validate(data){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
-/*
-	if(data[2][2] == 'am' || data[2][2] == 'pm'){
+	if(parseInt(data[2][2]) == 0 || parseInt(data[2][2]) == 1){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
-*/
 	try {
 		for(let i = 0; i < 7; i++){
 			if(typeof data[3][0] != "boolean"){
@@ -276,7 +274,7 @@ function validate(data){
 }
 
 function showTask(data){
-	
+
 	let taskName = data[0];
 
 	let taskIdString = "task" + data[4];
@@ -310,7 +308,7 @@ function showTask(data){
 	task.appendChild(taskBox);
 	
 	let taskLabel = document.createElement('label');
-	taskLabel.setAttribute('id',taskIdString + "Label");
+	taskLabel.setAttribute('id',taskIdStringw + "Label");
 	taskLabel.setAttribute('class','tasksLabel');
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
