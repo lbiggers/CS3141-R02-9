@@ -250,10 +250,12 @@ function validate(data){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
+/*
 	if(data[2][2] == 'am' || data[2][2] == 'pm'){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
+*/
 	try {
 		for(let i = 0; i < 7; i++){
 			if(typeof data[3][0] != "boolean"){
@@ -293,46 +295,31 @@ function showTask(data){
 	taskRemove.appendChild(bold);
 	task.appendChild(taskRemove);
 
-		let task = document.createElement('div');
-		task.setAttribute('class', 'column')
-		task.setAttribute('id',taskId);
-		task.setAttribute('class','tasks');
-		task.setAttribute('onmouseover','showInfo('+taskId+')');
-		
-		let taskRemove = document.createElement('button');
-		taskRemove.setAttribute('id',taskId + "Remove");
-		taskRemove.setAttribute('class','tasksRemove');
-		taskRemove.setAttribute('onclick','removeTask("'+taskId+'")');
-		let bold = document.createElement('b');
-		bold.innerText = "x";
-		taskRemove.appendChild(bold);
-		task.appendChild(taskRemove);
-
-		let taskEdit = document.createElement('button');
-		taskEdit.setAttribute('id',taskId + "Edit");
-		taskEdit.setAttribute('class','tasksEdit');
-		taskEdit.setAttribute('onclick','editTask("'+taskId+'")');
-		taskEdit.innerText = "edit";
-		task.appendChild(taskEdit);
-		
-		let taskBox = document.createElement('input');
-		taskBox.setAttribute('id',taskId + "Box");
-		taskBox.setAttribute('class','tasksBox');
-		taskBox.setAttribute('type','checkbox');
-		taskBox.setAttribute('oninput','checkTask("'+taskId+'")');
-		task.appendChild(taskBox);
-		
-		let taskLabel = document.createElement('label');
-		taskLabel.setAttribute('id',taskId + "Label");
-		taskLabel.setAttribute('class','tasksLabel');
-		taskLabel.innerText = taskName;
-		task.appendChild(taskLabel);
-		
-		//task.appendChild(document.createElement('br')); 
-		//task.appendChild(document.createElement('br'));
-		
-		document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
-	}
+	let taskEdit = document.createElement('button');
+	taskEdit.setAttribute('id',taskIdString + "Edit");
+	taskEdit.setAttribute('class','tasksEdit');
+	taskEdit.setAttribute('onclick','editTask("'+taskIdString+'")');
+	taskEdit.innerText = "edit";
+	task.appendChild(taskEdit);
+	
+	let taskBox = document.createElement('input');
+	taskBox.setAttribute('id',taskIdString + "Box");
+	taskBox.setAttribute('class','tasksBox');
+	taskBox.setAttribute('type','checkbox');
+	taskBox.setAttribute('oninput','checkTask("'+taskIdString+'")');
+	task.appendChild(taskBox);
+	
+	let taskLabel = document.createElement('label');
+	taskLabel.setAttribute('id',taskIdString + "Label");
+	taskLabel.setAttribute('class','tasksLabel');
+	taskLabel.innerText = taskName;
+	task.appendChild(taskLabel);
+	
+	//task.appendChild(document.createElement('br')); 
+	//task.appendChild(document.createElement('br'));
+	
+	document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
+}
 
 
 function debugTaskAlert(){
