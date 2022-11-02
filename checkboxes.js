@@ -1,4 +1,3 @@
-var testTaskData; //debugging
 
 var taskCount = 0;
 
@@ -169,10 +168,10 @@ function newTask(){
 
 	let formButtons = document.createElement('div');
 	formButtons.setAttribute('id','formBtnBox');
-	formButtons.innerHTML = `
-		<button id='formCancelBtn' onclick='formClose()'>Cancel</button>
-		<button id='formSubmitBtn' onclick='formSubmit()'>Submit</button>
-	`;
+	formButtons.innerHTML = 
+`<button id='formCancelBtn' onclick='formClose()'>Cancel</button>
+<button id='formSubmitBtn' onclick='formSubmit()'>Submit</button>`
+	;
 	form.appendChild(formButtons);
 	
 	document.body.insertBefore(form,document.getElementById('taskButtonBack'));	
@@ -207,14 +206,13 @@ function formSubmit(){
 		innerDoc.getElementById('freqSt').checked
 	];
 
-	data[4] = taskCount++;
 
 	let valid = validate(data);
 	if(valid[0]) {
-		formClose();
-	
-		testTaskData = data; //debugging
-	
+
+		taskArray[taskCount++] = data;
+		
+		formClose(); 
 		showTask(data);
 		return;
 	}
@@ -230,7 +228,7 @@ function validate(data){
 	var validityReport = [true,"valid"];
 	let errorCount = 0;
 
-	if(data.length != 5){
+	if(data.length != 4){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad array size, but like how tho??";
 	}
@@ -250,12 +248,10 @@ function validate(data){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
-	/*
 	if(!(parseInt(data[2][2]) == 0 || parseInt(data[2][2]) == 1)){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad am/pm";
 	}
-	*/
 	try {
 		for(let i = 0; i < 7; i++){
 			if(typeof data[3][0] != "boolean"){
@@ -323,19 +319,21 @@ function showTask(data){
 
 
 function debugTaskAlert(){
-	
+	let testTaskData = taskArray[taskCount-1];
+
+	let ampm = (parseInt(testTaskData[2][2]) == 0) ? 'am' : 'pm';
+	let minute = (parseInt(testTaskData[2][1]) < 10) ? ("0" + testTaskData[2][1]) : testTaskData[2][1];
+
 	let daysTest = [7];
 	for(let i = 0; i < 7; i++){
 		daysTest[i] = (testTaskData[3][i]) ? 'X' : 'O';
 	}
 
-	window.alert(
-
-`name: `+testTaskData[0]+`
+	window.alert(`
+name: `+testTaskData[0]+`
 desc: `+testTaskData[1]+`
-time: `+ testTaskData[2][0] +`:`+ testTaskData[2][1] +` `+ testTaskData[2][2] +`
+time: `+ testTaskData[2][0] +`:`+ minute +` `+ ampm +`
 days: ` + daysTest[0] + daysTest[1] + daysTest[2] + daysTest[3] + daysTest[4] + daysTest[5] + daysTest[6]
-	
 	);
 }
 
@@ -369,7 +367,6 @@ function showInfo(id) {
 	closeInfo();	
 	shownTaskId = id;
 
-	//todo
 }
 
 function closeInfo(){
