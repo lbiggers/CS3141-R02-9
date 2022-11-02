@@ -250,10 +250,12 @@ function validate(data){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad minutes";
 	}
-	if(parseInt(data[2][2]) == 0 || parseInt(data[2][2]) == 1){
+	/*
+	if(!(parseInt(data[2][2]) == 0 || parseInt(data[2][2]) == 1)){
 		validityReport[0] = false;
-		validityReport[++errorCount] = "Bad minutes";
+		validityReport[++errorCount] = "Bad am/pm";
 	}
+	*/
 	try {
 		for(let i = 0; i < 7; i++){
 			if(typeof data[3][0] != "boolean"){
@@ -308,7 +310,7 @@ function showTask(data){
 	task.appendChild(taskBox);
 	
 	let taskLabel = document.createElement('label');
-	taskLabel.setAttribute('id',taskIdStringw + "Label");
+	taskLabel.setAttribute('id',taskIdString + "Label");
 	taskLabel.setAttribute('class','tasksLabel');
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
