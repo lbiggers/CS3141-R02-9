@@ -1,4 +1,6 @@
+
 <?php
+  error_reporting (E_ALL ^ E_NOTICE);
   function connectDB()
   {
     $mysqli = mysqli_connect("classdb.it.mtu.edu","rjbunker","g.L5g7P9", "simplyst", 3307);
@@ -7,23 +9,42 @@
       echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
       exit();
     }
-    echo "Connected Successfully!";
     return $mysqli;
   }
-  function getName()
+  function getName($user)
   {
     $conn = connectDB();
-    $sql = "SELECT * FROM users WHERE username = 'GreggoWaffle'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-        return $row["name"];
-      }
-    } else {
-      echo "0 results";
-    }
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+   
+    $row = $result->fetch_assoc();
     $conn->close();
-    echo $result;
+    return $row["name"];
+  }
+  function getTasks($user)
+  {
+    $conn = connectDB();
+
+    $stmt = $conn->prepare("SELECT * FROM tasks WHERE user = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $conn->close();
+    return $result;
+  }
+  function authenticate()
+  {
+    
+  }
+
+  $function = $_POST['function'];
+  $name= $_POST['name'];
+
+  if ($function == "getName")
+  {
+      echo getName($name);
   }
 ?>
