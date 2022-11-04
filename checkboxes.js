@@ -311,10 +311,8 @@ function showTask(data){
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
 	
-	//task.appendChild(document.createElement('br')); 
-	//task.appendChild(document.createElement('br'));
-	
-	document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
+	document.getElementById("container").appendChild(task);	
+	//document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
 }
 
 
