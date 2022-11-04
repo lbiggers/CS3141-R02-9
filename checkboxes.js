@@ -276,8 +276,11 @@ function showTask(data){
 	let taskName = data[0];
 
 	let taskIdString = "task" + data[4];
+
+	var rowCount = taskCount+2;
 	
 	let task = document.createElement('div');
+	task.setAttribute('style', 'grid-row:' +rowCount);
 	task.setAttribute('id',taskIdString);
 	task.setAttribute('class','tasks');
 	task.setAttribute('onmouseover','showInfo('+taskIdString+')');
