@@ -9,6 +9,7 @@ var taskArray = [];
 function newTask(){
 	let form = document.createElement('div');
 	form.setAttribute('id','formBox');
+	form.setAttribute('style', 'grid-column: 4; grid-row-start: 2; grid-row-end: 5');
 	
 	let formContent = document.createElement('iframe');
 	try {
@@ -17,16 +18,18 @@ function newTask(){
 	<head>
 		<style>
 			body{
-				background-color: #ffffff;
+				background-color: #555555;
 			}
 			.item {
 				padding-bottom: 5px;
+				background-color: #555555;
+				color: white;
 			}
 		</style>
 	</head>
 	<body>
 		<div class='item' id='name'>
-			<label id='nameLabel'>Name of task:</label> 
+			<label id='nameLabel'>Task:</label> 
 			<input id='nameInput' type='text'>
 		</div>
 		<div class='item' id='info'>
@@ -34,7 +37,7 @@ function newTask(){
 			<input id='infoInput' type='text'>
 		</div>
 		<div class='item' id='time'>
-			<label id='timeLabel'>@ what time: </label> 
+			<label id='timeLabel'>Time: </label> 
 			<select id='timeInputHour'>
 				<option value='12'>12</option>
 				<option value='11'>11</option>
@@ -180,7 +183,7 @@ function newTask(){
 			</select>
 		</div>
 		<div class='item' id='freq'>
-			<label id='freqLabel'>which days:</label> 
+			<label id='freqLabel'>Days:</label> 
 			<br>
 			<table>
 				<tr>
@@ -224,7 +227,7 @@ function newTask(){
 		formContent.src = "newTaskForm.html"
 	}
 	
-	formContent.height="165px";
+	formContent.height="190px";
 	formContent.id = "formIframe";
 	form.appendChild(formContent);
 
@@ -236,7 +239,8 @@ function newTask(){
 	;
 	form.appendChild(formButtons);
 	
-	document.body.insertBefore(form,document.getElementById('taskButtonBack'));	
+	//document.body.insertBefore(form,document.getElementById('taskButtonBack'));	
+	document.getElementById("container").appendChild(form);
 }
 
 function formClose(){
