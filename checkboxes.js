@@ -9,7 +9,7 @@ var taskArray = [];
 function newTask(){
 	let form = document.createElement('div');
 	form.setAttribute('id','formBox');
-	form.setAttribute('style', 'grid-column: 4; grid-row-start: 2; grid-row-end: 5');
+	form.setAttribute('style', 'grid-column: 4; grid-row-start: 2; grid-row-end: 10');
 	
 	let formContent = document.createElement('iframe');
 	try {
@@ -300,7 +300,7 @@ function validate(data){
 	var validityReport = [true,"valid"];
 	let errorCount = 0;
 
-	if(data.length != 4){
+	if(data.length != 5){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad array size, but like how tho??";
 	}
@@ -385,6 +385,12 @@ function showTask(data){
 	taskLabel.setAttribute('class','tasksLabel');
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
+	if(data[3] == [false, false, false, false, false, false, false]){
+		task.setAttribute('style', 'grid-column: 3; grid-row:' +rowCount);
+	}
+	else{
+		task.setAttribute('style', 'grid-column: 2; grid-row:' +rowCount);
+	}
 	
 	document.getElementById("container").appendChild(task);	
 	//document.body.insertBefore(task,document.getElementById('taskButtonBack'));	
