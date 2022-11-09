@@ -300,7 +300,7 @@ function validate(data){
 	var validityReport = [true,"valid"];
 	let errorCount = 0;
 
-	if(data.length != 4){
+	if(data.length != 5){
 		validityReport[0] = false;
 		validityReport[++errorCount] = "Bad array size, but like how tho??";
 	}
