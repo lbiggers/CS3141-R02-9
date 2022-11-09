@@ -15,13 +15,15 @@
 	</div>
 	<div class= "general"><h2>General</h2>
   	</div>
-	 
-      
-  
-  
 	<button type='button' id='taskButton' onclick='newTask()' onmouseover='outlineTaskButton()'>New Task</button>
-
-
+	
+	<div class="dropdown">
+			<button type='button' id='menuButton' onclick='dropDown()' onmouseover='outlineMenuButton()' class="dropbtn">Menu</button>
+		<div id="myDropdown" class="dropdown-content">
+		<h1><button type='button' id='themeButton' onclick='changeThemeDefault()'>Change Theme Default</h1>
+		<h1><button type='button' id='themeButton2' onclick='changeThemeTurquoise()'>Change Theme Turquoise</h1>
+	</div>
+	</div>
 </div>	
 </body>
 </html>
