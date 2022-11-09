@@ -4,7 +4,7 @@
 			--font-color: white;
 		}
 		[data-theme="turquoise"]{
-			--primary-color: #EBF4F4;
+			--primary-color: #D3F2F0 ;
 			--secondary-color: #00bcd4;
 			--font-color: black;
 		}
