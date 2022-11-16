@@ -5,6 +5,9 @@ var shownTaskId= "";
 
 var taskArray = [];
 
+var col1 = 3;
+var col2 = 3;
+var col3 = 3;
 
 function newTask(){
 	let form = document.createElement('div');
@@ -379,17 +382,34 @@ function showTask(data){
 	taskBox.setAttribute('type','checkbox');
 	taskBox.setAttribute('oninput','checkTask("'+taskIdString+'")');
 	task.appendChild(taskBox);
+
+	const date = new Date();
+	 yea = date.getFullYear();
 	
 	let taskLabel = document.createElement('label');
-	taskLabel.setAttribute('id',taskIdString + "Label");
+	taskLabel.setAttribute('id',taskIdString + "Label" + data[3]);
 	taskLabel.setAttribute('class','tasksLabel');
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
-	if(data[3] == [false, false, false, false, false, false, false]){
-		task.setAttribute('style', 'grid-column: 3; grid-row:' +rowCount);
+
+	
+
+	if(data[4][0] == (date.getMonth() + 1) && data[4][1] == date.getDate() && data[4][2] == date.getFullYear()){
+		task.setAttribute('style', 'grid-column: 1; grid-row:' +col1);
+		col1++;
+	}
+	
+	else if( data[3][date.getDay()] == true){
+		task.setAttribute('style', 'grid-column: 1; grid-row:' +col1);
+		col1++;
+	}
+	else if(data[4][0] == 1 && data[4][1] == 1 && data[4][2] == 2022 && data[3][0] == false && data[3][1] == false && data[3][2] == false && data[3][3] == false && data[3][4] == false && data[3][5] == false && data[3][6] == false) {
+		task.setAttribute('style', 'grid-column: 3; grid-row:' +col3);
+		col3++;
 	}
 	else{
-		task.setAttribute('style', 'grid-column: 2; grid-row:' +rowCount);
+		task.setAttribute('style', 'grid-column: 2; grid-row:' +col2);
+		col2++;
 	}
 	
 	document.getElementById("container").appendChild(task);	

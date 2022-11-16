@@ -66,10 +66,7 @@
 			grid-row: 3;
 			
 		}
-		.tasksLabel{
-		}
-		.tasksInfo{
-		}
+		
 		.container{
 			display: grid;
 			grid-template-columns: auto auto auto 320px;
