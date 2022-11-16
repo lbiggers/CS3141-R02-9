@@ -3,7 +3,7 @@
   error_reporting (E_ALL ^ E_NOTICE);
   function connectDB()
   {
-    $mysqli = mysqli_connect("classdb.it.mtu.edu","rjbunker","g.L5g7P9", "simplyst", 3307);
+    $mysqli = mysqli_connect("classdb.it.mtu.edu","simplyst_rw","S!mp1yst", "simplyst", 3307);
 
     if ($mysqli -> connect_errno) {
       echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
@@ -33,7 +33,17 @@
     $stmt->execute();
     $result = $stmt->get_result();
     $conn->close();
-    return $result;
+
+    $output = "";
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $output = $output.$row["name"]."|".$row["info"]."|".$row["frequency"]."|".$row["taskTime"]."|".$row["expireDate"].";";
+        }
+    } else {
+      return "-1";
+    }
+    return $output;
   }
   function authenticate()
   {
@@ -46,5 +56,9 @@
   if ($function == "getName")
   {
       echo getName($name);
+  }
+  if ($function == "getTasks")
+  {
+      echo getTasks($name);
   }
 ?>

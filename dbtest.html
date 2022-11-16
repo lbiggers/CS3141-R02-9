@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <h1 id = "greeting"></h1>  
+</header>
+<body>
+  <p id=tasks></p>
+  <p>Not updating</p>
+  <p id="invis" hidden>Glarg</p>
+    <script src="db.js"></script>
+    <script>
+        document.getElementById("greeting").innerHTML = "Hello " + getName("GreggoWaffle") + "!";
+        document.getElementById("tasks").innerHTML = "Do " + getTasks("GreggoWaffle") + "!";
+        console.log("printed tasks")
+        getTasksAsTasks("GreggoWaffle");
+        console.log("got here");
+    </script>
+</html>

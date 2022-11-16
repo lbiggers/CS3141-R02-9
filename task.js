@@ -28,6 +28,26 @@ class task
     {
         return this.expireDate;
     }
+    setName(newName)
+    {
+        this.name = newName
+    }
+    setInfo(newInfo)
+    {
+        this.info = newInfo
+    }
+    setTime(newTime)
+    {
+        this.time = newTime;
+    }
+    setFrequency(newFreq)
+    {
+        this.frequency = newFreq
+    }
+    setExpireDate(newExp)
+    {
+        this.expireDate = newExp
+    }
 } 
 class tasks
 {
@@ -65,15 +85,11 @@ class tasks
     {
         return this.tasks.length;
     }
-    getTasks ()
-    {
-        return this.tasks;
-    }
     getTask(id)
     {
         return this.tasks[id];
     }
-    editTask(id, name, info, time, frequency, expireDate)
+    replaceTask(id, name, info, time, frequency, expireDate)
     {
         this.tasks[id] = new task(name, info, time, frequency, expireDate);
     }
