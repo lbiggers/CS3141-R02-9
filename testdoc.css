@@ -1,3 +1,14 @@
 .test{
     border-style: inset;
+    border-color: brown;
+    background-color: burlywood;
+    margin-top: 5mm;
+    margin-left: 2mm;
+    margin-right: 2mm;
+    padding-left: 2mm;
+    font-family: Calibri;
+}
+body{
+    background-color: brown;
+    padding-bottom: 5mm;
 }
