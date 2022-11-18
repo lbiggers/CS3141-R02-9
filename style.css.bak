@@ -4,7 +4,7 @@
 			--font-color: white;
 		}
 		[data-theme="turquoise"]{
-			--primary-color: #D3F2F0 ;
+			--primary-color: #EBF4F4;
 			--secondary-color: #00bcd4;
 			--font-color: black;
 		}
@@ -109,19 +109,18 @@
 		  text-align: center;
 		  border: none;
 		  cursor: pointer;
-		  position: fixed;
-          left: 7px; 
-		  top: 9px;
-		 
+		  position: relative;
+		  grid-column: 4;
+		  grid-row: 1;
+		  
 		  
 		}
 		.dropbtn:hover, .dropbtn:focus {
 		  background-color: var(--secondary-color);
 		}
 		.dropdown {
-		  position: fixed;
-		  left: 7px; 
-		  top: 49px;
+		  position: relative;
+		  grid-column: 4;
 		  display: inline-block;
 		}
 		.dropdown-content {

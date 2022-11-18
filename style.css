@@ -109,20 +109,19 @@
 		  text-align: center;
 		  border: none;
 		  cursor: pointer;
-		  position: fixed;
-          left: 7px; 
-		  top: 9px;
-		 
+		  position: relative;
+		  grid-column: 4;
+		  grid-row: 1;
+		  
 		  
 		}
 		.dropbtn:hover, .dropbtn:focus {
 		  background-color: var(--secondary-color);
 		}
 		.dropdown {
-		  position: fixed;
-		  left: 7px; 
-		  top: 49px;
-		  display: inline-block;
+		  position: relative;
+		  grid-column: 4;
+		  
 		}
 		.dropdown-content {
 		  display: none;
