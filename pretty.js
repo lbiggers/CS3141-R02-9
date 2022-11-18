@@ -34,16 +34,20 @@ window.onclick = function(event) {
 
 
 function changeThemeDefault(){
-	let button = document.getElementById('themeButton');
-	
         document.documentElement.setAttribute('data-theme', 'root');
-     
     toggleSwitch.addEventListener('change', switchTheme, false);
 }
 function changeThemeTurquoise(){
-	let button = document.getElementById('themeButton');
-	
-        document.documentElement.setAttribute('data-theme', 'turquoise');
+		document.documentElement.setAttribute('data-theme', 'turquoise');
+     toggleSwitch.addEventListener('change', switchTheme, false);
+}
+function changeThemeFire(){
+		document.documentElement.setAttribute('data-theme', 'fire');
+     
+    toggleSwitch.addEventListener('change', switchTheme, false);
+}
+function changeThemeDusk(){
+    document.documentElement.setAttribute('data-theme', 'dusk');
      
     toggleSwitch.addEventListener('change', switchTheme, false);
 }

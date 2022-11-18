@@ -8,6 +8,16 @@
 			--secondary-color: #00bcd4;
 			--font-color: black;
 		}
+		[data-theme="fire"]{
+			--primary-color: #fc846f;
+			--secondary-color: #fc4903;
+			--font-color: black;
+		}
+		[data-theme="dusk"]{
+			--primary-color: #4a3d6b;
+			--secondary-color: #22114d;
+			--font-color: yellow;
+		}
 		body {
 			background-color: var(--primary-color);
 			text-align: center;
@@ -147,6 +157,20 @@
 			padding: 2px 2px;
 		}
 		#themeButton2{
+			border: none;
+			background-color: var(--secondary-color);
+            color: var(--font-color);
+			font-size: 16px;
+			padding: 2px 2px;
+		}
+		#themeButton3{
+			border: none;
+			background-color: var(--secondary-color);
+            color: var(--font-color);
+			font-size: 16px;
+			padding: 2px 2px;
+		}
+		#themeButton4{
 			border: none;
 			background-color: var(--secondary-color);
             color: var(--font-color);
