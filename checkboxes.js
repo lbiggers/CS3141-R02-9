@@ -3,7 +3,7 @@ var taskCount = 0;
 
 var shownTaskId= ""; 
 
-var taskArray = [];
+var taskSet = new tasks();
 
 var col1 = 3;
 var col2 = 3;
@@ -284,8 +284,7 @@ function formSubmit(){
 
 	let valid = validate(data);
 	if(valid[0]) {
-
-		taskArray[taskCount++] = data;
+		taskSet.addTask(data[0],data[1],data[2],data[3],data[4]);
 		
 		formClose(); 
 		showTask(data);

@@ -8,6 +8,7 @@ class task
         this.frequency = frequency;
         this.expireDate = expireDate;
     }
+    
     getName()
     {
         return this.name;
@@ -28,6 +29,7 @@ class task
     {
         return this.expireDate;
     }
+
     setName(newName)
     {
         this.name = newName
@@ -49,6 +51,7 @@ class task
         this.expireDate = newExp
     }
 } 
+
 class tasks
 {
     constructor()
