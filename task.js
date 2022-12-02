@@ -1,3 +1,6 @@
+const { getDiffieHellman } = require("crypto");
+const { get } = require("http");
+
 class task
 {
     constructor(name, info, time, frequency, expireDate)
@@ -92,13 +95,23 @@ class tasks
     {
         return this.tasks[id];
     }
+    getidByName(name)
+    {
+        for(let i = 0; i < this.length; i++)
+        {
+            if (name.includes(this.tasks[id].getName))
+            {
+                return i;
+            }
+        }
+    }
     replaceTask(id, name, info, time, frequency, expireDate)
     {
         this.tasks[id] = new task(name, info, time, frequency, expireDate);
     }
-    removeTask(id)
+    removeTask(name)
     {
-        this.tasks.splice(id, 1)
+        this.tasks.splice(getidByName(name), 1)
     }
     toString()
     {
