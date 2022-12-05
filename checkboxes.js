@@ -4,6 +4,8 @@ var taskCount = 0;
 
 var shownTaskId= ""; 
 
+var taskList = [];
+
 //var taskSet = new tasks();
 
 var col1 = 3;
@@ -358,15 +360,15 @@ function showTask(data){
 	task.setAttribute('style', 'grid-row:' +rowCount);
 	task.setAttribute('id',taskIdString);
 	task.setAttribute('class','tasks');
-	task.setAttribute('onmouseover','showInfo('+taskIdString+')');
+//	task.setAttribute('onmouseover','showInfo('+taskIdString+')');
 	
 	let taskRemove = document.createElement('button');
 	taskRemove.setAttribute('id',taskIdString + "Remove");
 	taskRemove.setAttribute('class','tasksRemove');
 	taskRemove.setAttribute('onclick','removeTask("'+taskIdString+'")');
-	let bold = document.createElement('b');
-	bold.innerText = "x";
-	taskRemove.appendChild(bold);
+//	let bold = document.createElement('b');
+//	bold.innerText = "x";
+//	taskRemove.appendChild(bold);
 	task.appendChild(taskRemove);
 
 	let taskEdit = document.createElement('button');
@@ -387,7 +389,7 @@ function showTask(data){
 	 yea = date.getFullYear();
 	
 	let taskLabel = document.createElement('label');
-	taskLabel.setAttribute('id',taskIdString + "Label" + data[3]);
+	taskLabel.setAttribute('id',taskIdString + "Label");
 	taskLabel.setAttribute('class','tasksLabel');
 	taskLabel.innerText = taskName;
 	task.appendChild(taskLabel);
