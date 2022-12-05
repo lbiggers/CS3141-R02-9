@@ -1,9 +1,10 @@
+var checkNoise = new Audio("success.mp3");
 
 var taskCount = 0;
 
 var shownTaskId= ""; 
 
-var taskSet = new tasks();
+//var taskSet = new tasks();
 
 var col1 = 3;
 var col2 = 3;
@@ -284,7 +285,7 @@ function formSubmit(){
 
 	let valid = validate(data);
 	if(valid[0]) {
-		taskSet.addTask(data[0],data[1],data[2],data[3],data[4]);
+		//taskSet.addTask(data[0],data[1],data[2],data[3],data[4]);
 		
 		formClose(); 
 		showTask(data);
@@ -443,6 +444,7 @@ function checkTask(id){
 	
 	if(taskBox.checked){
 		window.alert("You did it! You completed task "+taskLabel.innerText+"!!!");
+		checkNoise.play();
 	}
 }
 
