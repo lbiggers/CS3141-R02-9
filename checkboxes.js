@@ -350,7 +350,7 @@ function showTask(data){
 
 	let taskName = data[0];
 
-	let taskIdString = "task" + data[4];
+	let taskIdString = "task";
 
 	var rowCount = taskCount+2;
 	
@@ -474,5 +474,9 @@ function closeInfo(){
 		return;
 	}
 //todo
+
+function refresh(){
+
+}
 
 }
