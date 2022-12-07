@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='checkboxes.js'></script>
+	<script src='pretty.js'></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class= "container" id="container">
+	<div class = "todo"><h1>To Do</h1>
+	</div>
+	<div class = "today"><h2>Today</h2>
+    </div>
+	<div class = "upcoming"><h2>Upcoming</h2>
+	</div>
+	<div class= "general"><h2>General</h2>
+  	</div>
+	<h1><button type='button' id='taskButton' onclick='newTask()' onmouseover='outlineTaskButton()'>New Task</button>
+	
+	<div class="dropdown">
+			<button type='button' id='menuButton' onclick='dropDown()' onmouseover='outlineMenuButton()' class="dropbtn">Menu</button>
+		<div id="myDropdown" class="dropdown-content">
+		<h1><button type='button' id='themeButton' onclick='changeThemeDefault()'>Change Theme Default</h1>
+		<h1><button type='button' id='themeButton2' onclick='changeThemeTurquoise()'>Change Theme Turquoise</h1>
+	</div>
+	</div>
+	</h2>
+	
+</div>	
+</body>
+</html>
